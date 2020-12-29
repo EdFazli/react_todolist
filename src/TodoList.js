@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import TodoItems from "./TodoItems.js";
 
 class TodoList extends Component {
     constructor(props) {
@@ -29,17 +30,18 @@ class TodoList extends Component {
 
         e.preventDefault();
     }
-    
+
     render () {
         return (
             <div className="todoListMain">
-                <div classname="header">
+                <div className="header">
                     <form onSubmit={this.addItem}>
                         <input ref={(a) => this._inputElement = a} placeholder="Enter Task">
                         </input>
                         <button type="submit">add</button>
                     </form>
                 </div>
+                <TodoItems entries={this.state.items} />
             </div>
         );
     }
